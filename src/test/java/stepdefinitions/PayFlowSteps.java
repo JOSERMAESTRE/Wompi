@@ -32,18 +32,18 @@ public class PayFlowSteps {
 	}
 
 	@Given("se crean los tokens de aceptación prefirmados")
-	public void i_request_merchant_data() {
+	public void se_crean_los_tokens_de_aceptación_prefirmados() {
 		merchantAPI.getMerchantInfo();
 		Assert.assertEquals(200, merchantAPI.getStatusCode());
 	}
 
 	@When("se solicita la información del método de pago con el numero {string}")
-	public void i_create_a_payment_method_with_phone_number(String phoneNumber) {
+	public void se_solicita_la_información_del_método_de_pago_con_el_numero(String phoneNumber) {
 		response = tokenAPI.createPaymentMethod(phoneNumber);
 	}
 
 	@Then("se chequea el estado de la suscripción con un estado de {string}")
-	public void the_response_response_status_is(String status) {
+	public void se_chequea_el_estado_de_la_suscripción_con_un_estado_de(String status) {
 		Assert.assertEquals(status, tokenSubscriptionAPI.getStatusResponse(response));
 
 	}
@@ -56,7 +56,7 @@ public class PayFlowSteps {
 	}
 
 	@When("se crea la transaccion con la siguiente informacion:")
-	public void i_create_a_transaction_with_the_following_details(io.cucumber.datatable.DataTable dataTable) {
+	public void se_crea_la_transaccion_con_la_siguiente_informacion(io.cucumber.datatable.DataTable dataTable) {
 
 		Map<String, String> data = dataTable.asMaps(String.class, String.class).get(0);
 
@@ -79,7 +79,7 @@ public class PayFlowSteps {
 	}
 
 	@Then("se ejecuta un evento y se obtiene información sobre la transacción")
-	public void i_send_the_transaction_event() {
+	public void se_ejecuta_un_evento_y_se_obtiene_información_sobre_la_transacción() {
 		Assert.assertEquals(200, eventAPI.sendTransactionEvent(response));
 	}
 
