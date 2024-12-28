@@ -22,7 +22,6 @@ public class EventAPI {
 	 public int sendTransactionEvent(Response transactionResponse) {
 	        JSONObject responseJson = new JSONObject(transactionResponse.body().asString());
 	        JSONObject dataJson = responseJson.getJSONObject("data");
-
 	     
 	        String transactionId = dataJson.getString("id");
 	        int amountInCents = dataJson.getInt("amount_in_cents");
@@ -73,10 +72,10 @@ public class EventAPI {
 	        postData.put("sent_at", formattedDate);
 
 	        Response response = given()
-	                .baseUri("https://v7kgx9j8ha.execute-api.us-east-2.amazonaws.com/test/events")
+	                .baseUri(ApiConfig.getEventUrl())
 	                .header("Content-Type", "application/json")
 	                .body(postData.toString())
-	                .post()
+	                .post("/test/events")
 	                .then()
 	                .extract()
 	                .response();

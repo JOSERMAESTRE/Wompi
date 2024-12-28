@@ -1,0 +1,2 @@
+amount_in_cents	currency	customer_email	reference	is_three_ds	three_ds_auth_type	full_name	phone_number	legal_id	legal_id_type
+2500000	COP	jose.rafa@example.com	54937	true	challenge	jose maestre	3194560279	1065658149	CC

@@ -7,7 +7,7 @@ public class ApiConfig {
 	private static final String PRV_KEY = "prv_stagtest_5i0ZGIGiFcDQifYsXxvsny7Y37tKqFWg";
 	private static final String INTEGRITY_KEY = "stagtest_integrity_nAIBuqayW70XpUqJS4qf4STYiISd89Fp";
 	private static final String EVENT_KEY = "stagtest_events_2PDUmhMywUkvb1LvxYnayFbmofT7w39N";
-	
+	private static final String EVENT_URL ="https://v7kgx9j8ha.execute-api.us-east-2.amazonaws.com";
 
 	public static String getBaseUrl() {
 		return BASE_URL;
@@ -26,5 +26,8 @@ public class ApiConfig {
 	}
 	public static String getEventKey() {
 		return EVENT_KEY;
+	}
+	public static String getEventUrl() {
+		return EVENT_URL;
 	}
 }
